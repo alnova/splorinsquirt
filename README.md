@@ -1,6 +1,5 @@
 # Splorin Squirt Landing Pages
 
-Three static HTML directions for GitHub Pages:
 
 - `wine-vintage.html`: fake fancy wine vintage
 - `startup-landing.html`: classic product startup parody
