@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Splorin Squirt | Hydration, Disrupted</title>
+  <meta name="description" content="A fake startup landing page for Splorin Squirt, a non-potable joke product made from hot tub runoff.">
+  <style>
+    :root {
+      --ink: #080908;
+      --paper: #f8fbf4;
+      --acid: #55bf00;
+      --mint: #dff4d6;
+      --blue: #c5f3ff;
+      --danger: #ff2f2f;
+      --muted: #536052;
+      --line: #111;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .shell { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 3px solid var(--line);
+      background: rgba(248,251,244,.96);
+      backdrop-filter: blur(10px);
+    }
+    nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+    .links { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+    a { color: inherit; }
+    .logo-word { font-size: 18px; }
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 42px;
+      align-items: center;
+      padding: 50px 0;
+    }
+    .pill {
+      display: inline-flex;
+      border: 2px solid var(--line);
+      padding: 8px 12px;
+      background: var(--mint);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(56px, 9vw, 124px);
+      line-height: .86;
+      letter-spacing: -.05em;
+    }
+    .green { color: var(--acid); }
+    .dek {
+      max-width: 690px;
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.2;
+      margin: 26px 0 0;
+      font-weight: 800;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border: 3px solid var(--line);
+      background: var(--ink);
+      color: white;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      box-shadow: 6px 6px 0 var(--acid);
+    }
+    .btn.secondary { background: white; color: var(--ink); box-shadow: 6px 6px 0 var(--blue); }
+    .product-card {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+      border: 4px solid var(--line);
+      background: white;
+      box-shadow: 12px 12px 0 var(--ink);
+      transform: rotate(1deg);
+    }
+    .product-card img {
+      width: 100%;
+      max-height: 660px;
+      object-fit: contain;
+      background: #fff;
+    }
+    .caption {
+      border-top: 3px solid var(--line);
+      padding-top: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+    section { padding: 58px 0; border-top: 3px solid var(--line); }
+    h2 {
+      margin: 0 0 20px;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: .9;
+      letter-spacing: -.04em;
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card {
+      border: 3px solid var(--line);
+      background: white;
+      padding: 22px;
+      min-height: 190px;
+    }
+    .card:nth-child(2n) { background: var(--mint); }
+    .card:nth-child(3n) { background: var(--blue); }
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .card p, .card li { font-size: 18px; line-height: 1.42; font-weight: 700; }
+    .card p { margin: 0; }
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 8px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 4px solid var(--line);
+      background: var(--ink);
+      color: white;
+    }
+    .metric {
+      padding: 22px;
+      border-right: 3px solid white;
+    }
+    .metric:last-child { border-right: 0; }
+    .metric strong {
+      display: block;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: .9;
+      color: var(--acid);
+    }
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .step {
+      border: 3px solid var(--line);
+      padding: 18px;
+      background: white;
+    }
+    .step b {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      background: var(--acid);
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      font-weight: 900;
+    }
+    .warning {
+      background: var(--danger);
+      color: white;
+      padding: 28px;
+      border: 4px solid var(--line);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+    .warning h2 { color: white; }
+    .warning p { font-size: 22px; line-height: 1.35; font-weight: 900; }
+    footer {
+      padding: 36px 0 50px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    @media (max-width: 880px) {
+      nav { flex-direction: column; align-items: flex-start; padding: 16px 0; }
+      .links { justify-content: flex-start; }
+      .hero, .grid-2, .grid-3, .process-row, .metrics { grid-template-columns: 1fr; }
+      .metric { border-right: 0; border-bottom: 3px solid white; }
+      .metric:last-child { border-bottom: 0; }
+      .product-card { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <div class="logo-word">Splorin Squirt</div>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#notes">Taste Graph</a>
+        <a href="#team">Team</a>
+        <a href="#warnings">Warnings</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div>
+        <span class="pill">Hydration, disrupted, then immediately forbidden</span>
+        <h1>Meet the world's first <span class="green">community-sourced</span> hot tub runoff.</h1>
+        <p class="dek">Splorin Squirt converts one night of drunken urban exploration, fourteen marinating bodies, and a deeply concerning tub into a premium non-beverage experience.</p>
+        <div class="cta-row">
+          <a class="btn" href="#features">View Product</a>
+          <a class="btn secondary" href="#warnings">Why Not Drink It</a>
+        </div>
+      </div>
+      <aside class="product-card">
+        <img src="assets/splorin-squirt-logo.png" alt="Splorin Squirt product logo">
+        <div class="caption">14X body steeped · Oakland batched · absolutely not for consumption</div>
+      </aside>
+    </section>
+
+    <section class="shell">
+      <div class="metrics" aria-label="Product metrics">
+        <div class="metric"><strong>14</strong><span>Explorers per batch</span></div>
+        <div class="metric"><strong>0</strong><span>Medical endorsements</span></div>
+        <div class="metric"><strong>1</strong><span>Shared skimmer basket</span></div>
+        <div class="metric"><strong>∞</strong><span>Bad decisions captured</span></div>
+      </div>
+    </section>
+
+    <section class="shell" id="features">
+      <h2>Everything You Need In A Product You Must Not Use</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Body-Part Forward</h3>
+          <p>Elbow broth, toe foam, thigh brine, wrist film, neck salt, and other notes only possible through full-contact product discovery.</p>
+        </article>
+        <article class="card">
+          <h3>Sewer Native</h3>
+          <p>Built for drainers, tunnel peekers, culvert romantics, and people who call trespassing "site research."</p>
+        </article>
+        <article class="card">
+          <h3>Microbiome Rich</h3>
+          <p>A warm archive of skin flora, chlorine conflict, sunscreen residue, municipal dust, and whatever was on everyone's socks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="notes">
+      <h2>Tasting Notes, But Legally Nobody Tasted It</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Top Notes</h3>
+          <ul>
+            <li>Chlorine ghost</li>
+            <li>Storm grate bouquet</li>
+            <li>Warm armpit vapor</li>
+            <li>Hot vinyl cover</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Base Notes</h3>
+          <ul>
+            <li>Knee crease and culvert mist</li>
+            <li>Bellybutton brine</li>
+            <li>Oxidized ladder rung</li>
+            <li>A long finish of collective poor judgment</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell">
+      <h2>Our Proprietary SoakOps Pipeline</h2>
+      <div class="process-row">
+        <div class="step"><b>1</b><h3>Acquire Tub</h3><p>Locate warm water with enough social pressure to override common sense.</p></div>
+        <div class="step"><b>2</b><h3>Load Humans</h3><p>Introduce fourteen explorers until the liquid reaches maximum lore density.</p></div>
+        <div class="step"><b>3</b><h3>Capture Runoff</h3><p>Preserve the solution before clarity, ethics, or filtration can intervene.</p></div>
+        <div class="step"><b>4</b><h3>Label Aggressively</h3><p>Turn contamination anxiety into a premium brand experience.</p></div>
+      </div>
+    </section>
+
+    <section class="shell" id="team">
+      <h2>Leadership Team</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Chief Biofilm Officer</h3>
+          <p>Owns surface adhesion, mystery sheen, and the belief that slime is just UX with texture.</p>
+        </article>
+        <article class="card">
+          <h3>VP of Drain Partnerships</h3>
+          <p>Maintains relationships with storm grates, service corridors, and doors that were probably locked for a reason.</p>
+        </article>
+        <article class="card">
+          <h3>Head of Mother Retention</h3>
+          <p>Ensures every explorer checks in, overexplains, and remains emotionally available to the batch narrative.</p>
+        </article>
+        <article class="card">
+          <h3>Senior Foam Evangelist</h3>
+          <p>Converts floating particulate into compelling brand storytelling for investors with bad boundaries.</p>
+        </article>
+        <article class="card">
+          <h3>Compliance Avoidance Intern</h3>
+          <p>Does not answer emails. Does not touch samples. Does not know what a sample is.</p>
+        </article>
+        <article class="card">
+          <h3>Principal Knee Scientist</h3>
+          <p>Studies the unique aromatic profile released when a group soak becomes a public health thought experiment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="warnings">
+      <div class="warning">
+        <h2>Mandatory Warnings</h2>
+        <p>Splorin Squirt is a fake product, prop, and label joke. Do not ingest. Do not serve. Do not aerosolize. Do not use as skincare, marinade, starter culture, ceremonial fluid, or evidence. Real hot tub water can contain pathogens and chemical irritants. Keep sealed, labeled, and away from anyone with curiosity and poor impulse control.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">Splorin Squirt · 14X · Oakland · Built for jokes, not bodies</footer>
+</body>
+</html>

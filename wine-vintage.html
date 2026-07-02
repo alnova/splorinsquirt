@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chateau Backwash 14 | Splorin Squirt</title>
+  <meta name="description" content="A fake fine wine landing page for Splorin Squirt, a non-potable joke vintage of hot tub runoff.">
+  <style>
+    :root {
+      --ink: #10100d;
+      --paper: #faf8ef;
+      --paper-2: #f1efe4;
+      --acid: #50b900;
+      --wine: #3a1118;
+      --muted: #5f6458;
+      --line: #1c1c18;
+      --danger: #b81414;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    a { color: inherit; }
+    .shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250, 248, 239, .94);
+      border-bottom: 2px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    nav {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    nav .links { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+    .brand { color: var(--wine); font-size: 15px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .75fr);
+      gap: 42px;
+      align-items: center;
+      padding: 56px 0 44px;
+      border-bottom: 3px double var(--line);
+    }
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--acid);
+      margin: 0 0 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(52px, 9vw, 118px);
+      line-height: .86;
+      letter-spacing: -.03em;
+      color: var(--wine);
+    }
+    .dek {
+      max-width: 680px;
+      margin: 28px 0 0;
+      font-size: clamp(20px, 2.3vw, 30px);
+      line-height: 1.25;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--line);
+      padding: 14px 18px;
+      min-height: 48px;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      text-decoration: none;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .button.secondary { background: transparent; color: var(--ink); }
+    .bottle {
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      border: 3px solid var(--line);
+      background: linear-gradient(180deg, #fffef9, var(--paper-2));
+      box-shadow: 12px 12px 0 var(--wine);
+    }
+    .bottle img {
+      width: min(100%, 360px);
+      max-height: 620px;
+      object-fit: contain;
+      border: 1px solid rgba(0,0,0,.12);
+    }
+    section { padding: 58px 0; border-bottom: 2px solid var(--line); }
+    h2 {
+      margin: 0 0 24px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: .95;
+      color: var(--wine);
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .card {
+      border: 2px solid var(--line);
+      padding: 22px;
+      background: #fffdf4;
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .card p, .card li { font-size: 18px; line-height: 1.45; }
+    .card p { margin: 0; }
+    ul { padding-left: 22px; margin: 0; }
+    li + li { margin-top: 10px; }
+    .label-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border: 3px solid var(--line);
+      background: var(--ink);
+      color: var(--paper);
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+    .label-strip div { padding: 18px 12px; border-right: 2px solid var(--paper); }
+    .label-strip div:last-child { border-right: 0; }
+    .process {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 14px;
+    }
+    .step {
+      counter-increment: step;
+      border-left: 8px solid var(--acid);
+      padding: 14px 16px;
+      background: #fffdf4;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    .step strong::before { content: counter(step) ". "; color: var(--acid); }
+    .warning {
+      background: var(--danger);
+      color: white;
+      padding: 28px;
+      border: 4px solid var(--ink);
+      font-family: Arial, sans-serif;
+    }
+    .warning h2 { color: white; }
+    .warning p { font-size: 20px; line-height: 1.45; max-width: 900px; }
+    footer {
+      padding: 34px 0 48px;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    @media (max-width: 840px) {
+      nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      nav .links { justify-content: flex-start; }
+      .hero, .process, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .label-strip { grid-template-columns: 1fr; }
+      .label-strip div { border-right: 0; border-bottom: 2px solid var(--paper); }
+      .label-strip div:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="shell" aria-label="Primary navigation">
+      <div class="brand">Chateau Backwash 14</div>
+      <div class="links">
+        <a href="#notes">Tasting Notes</a>
+        <a href="#process">Terroir</a>
+        <a href="#staff">Cellar Staff</a>
+        <a href="#warnings">Warnings</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div>
+        <p class="eyebrow">Oakland 2026 · Jacuzzi Grand Cru · Not potable</p>
+        <h1>Chateau Backwash 14</h1>
+        <p class="dek">A rare urban vintage expressed from a hot tub after fourteen drunken explorers achieved full-body extraction, municipal reverie, and questionable fellowship.</p>
+        <div class="actions">
+          <a class="button" href="#notes">Open The Vintage</a>
+          <a class="button secondary" href="#warnings">Read The Liability</a>
+        </div>
+      </div>
+      <figure class="bottle" aria-label="Splorin Squirt product label">
+        <img src="assets/splorin-squirt-logo.png" alt="Splorin Squirt rectangular logo with tub and 14X mark">
+      </figure>
+    </section>
+
+    <section class="shell" id="notes">
+      <h2>Sommelier Notes</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Nose</h3>
+          <p>Toe cloud, armpit mist, hot vinyl cover, storm grate ozone, and a confident whisper of chlorine trying its best.</p>
+        </article>
+        <article class="card">
+          <h3>Palate</h3>
+          <p>Knee broth, thigh brine, oxidized ladder, culvert silt, and a mid-palate of dissolved secrets from people who know where the access hatch is.</p>
+        </article>
+        <article class="card">
+          <h3>Finish</h3>
+          <p>Long, warm, biofilm-forward. Subterranean minerality gives way to bellybutton salinity and a lingering note of municipal intimacy.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="label-strip" aria-label="Vintage facts">
+        <div>Fourteen bathers</div>
+        <div>Zero filtration claims</div>
+        <div>One terrible idea</div>
+      </div>
+    </section>
+
+    <section class="shell" id="process">
+      <div class="process">
+        <div>
+          <p class="eyebrow">Fermentation Process</p>
+          <h2>From Soak To Cellar</h2>
+          <p class="dek">Our terroir begins where the Oakland soil, old concrete, rusted access ladders, street runoff mythology, and the bather microbiome meet in a warm vessel of regret.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><strong>Marination.</strong> Fourteen explorers enter the tub. Heat encourages disclosure, skin oil release, and collective loss of plausible deniability.</div>
+          <div class="step"><strong>Extraction.</strong> Gentle agitation liberates sunscreen film, denim lint, elbow memory, and the emotional sediment of the evening.</div>
+          <div class="step"><strong>Urban resting.</strong> The vintage is allowed to contemplate storm drains, side quests, and the long spiritual tradition of going somewhere you were not invited.</div>
+          <div class="step"><strong>Bottling.</strong> The final liquid is treated as an art object, cursed sample, and fake wine, never as a beverage.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" id="staff">
+      <h2>Cellar Staff</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Grand Sommelier of Knees</h3>
+          <p>Identifies varietal differences between shin-forward and elbow-forward batches using only vibes and a headlamp.</p>
+        </article>
+        <article class="card">
+          <h3>Master of Suspended Solids</h3>
+          <p>Curates mouthfeel while loudly insisting that sediment is where the story lives.</p>
+        </article>
+        <article class="card">
+          <h3>Director of Maternal Terroir</h3>
+          <p>Ensures every bottle contains a faint aftertaste of being asked whether you got home safely.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="warnings">
+      <div class="warning">
+        <h2>Health Warnings</h2>
+        <p>This is a joke product and art label. Do not drink, gargle, mist, ferment, aerosolize, gift to enemies, or submit as communion. Hot tub water may contain bacteria, viruses, parasites, chemical residues, skin oils, bodily fluids, and other contaminants. For display, lore, and deeply unserious cellar talk only.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    Splorin Squirt · Oakland 2026 · Chateau Backwash 14 · All drain, all mom, all fake
+  </footer>
+</body>
+</html>

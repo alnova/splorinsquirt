@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Runoff Intelligence | Splorin Squirt</title>
+  <meta name="description" content="A fake stealth AI company landing page for Splorin Squirt, a non-potable joke sample of hot tub runoff.">
+  <style>
+    :root {
+      --bg: #050605;
+      --panel: #111810;
+      --panel-2: #182216;
+      --text: #efffe8;
+      --muted: #aebaa9;
+      --green: #6dff2a;
+      --cyan: #97f1ff;
+      --red: #ff4b4b;
+      --line: rgba(239,255,232,.24);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+    .shell { width: min(1160px, calc(100% - 32px)); margin: 0 auto; position: relative; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5,6,5,.9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    nav {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+    a { color: inherit; }
+    .links { display: flex; flex-wrap: wrap; gap: 18px; justify-content: flex-end; color: var(--muted); }
+    .brand { color: var(--green); }
+    .hero {
+      min-height: calc(100vh - 66px);
+      display: grid;
+      grid-template-columns: 1fr .82fr;
+      gap: 42px;
+      align-items: center;
+      padding: 54px 0;
+    }
+    .status {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--green);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 9px 12px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .08em;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--green); box-shadow: 0 0 16px var(--green); }
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(46px, 8vw, 112px);
+      line-height: .88;
+      letter-spacing: -.06em;
+    }
+    .gradient { color: var(--cyan); }
+    .dek {
+      max-width: 720px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.35;
+    }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 14px 18px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: #061006;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .btn.secondary { background: transparent; color: var(--text); border-color: var(--line); }
+    .terminal {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), #090c09);
+      padding: 16px;
+      box-shadow: 0 0 0 1px rgba(109,255,42,.16), 0 24px 80px rgba(0,0,0,.45);
+    }
+    .terminal img {
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      background: #f9faf2;
+      display: block;
+    }
+    .term-line {
+      border-top: 1px solid var(--line);
+      margin-top: 14px;
+      padding-top: 14px;
+      color: var(--green);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+    section { padding: 62px 0; border-top: 1px solid var(--line); }
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(32px, 5vw, 72px);
+      line-height: .92;
+      letter-spacing: -.05em;
+    }
+    .sub {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.45;
+      margin: -6px 0 28px;
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 22px;
+      min-height: 190px;
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .card p, .card li { color: var(--muted); font-size: 17px; line-height: 1.48; }
+    .card p { margin: 0; }
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 10px; }
+    .model {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .spec {
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      padding: 20px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      color: var(--muted);
+    }
+    .spec-row:last-child { border-bottom: 0; }
+    .spec-row strong { color: var(--text); }
+    .warning {
+      border: 2px solid var(--red);
+      background: rgba(255,75,75,.12);
+      padding: 28px;
+    }
+    .warning h2 { color: var(--red); }
+    .warning p { color: var(--text); font-size: 20px; line-height: 1.5; }
+    footer {
+      padding: 36px 0 54px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    @media (max-width: 880px) {
+      nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      .links { justify-content: flex-start; }
+      .hero, .grid-2, .grid-3, .model { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <div class="brand">Runoff Intelligence</div>
+      <div class="links">
+        <a href="#model">Model</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#team">Team</a>
+        <a href="#warnings">Risk</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div>
+        <div class="status"><span class="dot"></span> Stealth mode · sample not food</div>
+        <h1>Foundation models for <span class="gradient">municipal body water.</span></h1>
+        <p class="dek">We are training the world's first multimodal runoff intelligence layer on fourteen-explorer jacuzzi residue, sewer vibes, and a high-context understanding of what happens when the group chat says "bring a swimsuit."</p>
+        <div class="cta">
+          <a class="btn" href="#model">Request Access</a>
+          <a class="btn secondary" href="#warnings">View Risk Memo</a>
+        </div>
+      </div>
+      <aside class="terminal" aria-label="Splorin Squirt logo in AI terminal frame">
+        <img src="assets/splorin-squirt-logo.png" alt="Splorin Squirt logo">
+        <div class="term-line">
+          ingest://oakland/hottub/runoff/14x<br>
+          status: bottled · potable: false · alignment: mother-dependent · sewer-affinity: high
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell" id="model">
+      <div class="model">
+        <div>
+          <h2>Introducing SQUIRT-14X</h2>
+          <p class="sub">A closed-weight, open-wound, highly damp inference system for predicting tasting notes, liability exposure, and whether the ladder goes anywhere interesting.</p>
+        </div>
+        <div class="spec" aria-label="Model specification">
+          <div class="spec-row"><strong>Training Data</strong><span>Hot tub runoff, drain lore, wet socks</span></div>
+          <div class="spec-row"><strong>Parameters</strong><span>14 humans, countless contaminants</span></div>
+          <div class="spec-row"><strong>Context Window</strong><span>One full night plus the next morning's apology</span></div>
+          <div class="spec-row"><strong>Output</strong><span>Tasting notes, warnings, fake prestige</span></div>
+          <div class="spec-row"><strong>Safety Layer</strong><span>Refuses all drinking instructions</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" id="dataset">
+      <h2>The Dataset</h2>
+      <p class="sub">Our corpus is small, warm, and legally not something you should culture. It includes human-derived salinity, chlorine panic, Oakland soil mythology, storm-drain ambience, and the dense emotional metadata of fourteen people becoming soup-adjacent.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Body Tokens</h3>
+          <p>Elbow vectors, toe foam embeddings, knee-crease features, neck-salt activations, and armpit vapor priors.</p>
+        </article>
+        <article class="card">
+          <h3>Infrastructure Tokens</h3>
+          <p>Manhole latent space, culvert dampness, ladder rust, concrete seep, storm-grate bouquet, and municipal darkness.</p>
+        </article>
+        <article class="card">
+          <h3>Attachment Tokens</h3>
+          <p>Mother-check-in pressure, unread texts, guilt gradients, and the recurring belief that someone should have packed towels.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell">
+      <h2>Generated Tasting Notes</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Prompt</h3>
+          <p>"Describe a 2026 Oakland hot tub runoff vintage with sewer terroir, body-part minerality, and a finish that knows your mother is worried."</p>
+        </article>
+        <article class="card">
+          <h3>Completion</h3>
+          <p>Toe-forward opening with warm tunnel air, thigh brine, oxidized ladder, skimmer-basket bloom, and a long maternal aftertaste. Serve never.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="team">
+      <h2>Stealth Team</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Chief Runoff Scientist</h3>
+          <p>Owns fluid intelligence, refusal policies, and the decision to call it a dataset instead of a jar.</p>
+        </article>
+        <article class="card">
+          <h3>Head of Sewer Alignment</h3>
+          <p>Ensures the system prefers storm drains that are spiritually resonant, locally damp, and not obviously supervised.</p>
+        </article>
+        <article class="card">
+          <h3>VP of Mother Models</h3>
+          <p>Fine-tunes guilt, concern, and "text me when you get there" into every inference call.</p>
+        </article>
+        <article class="card">
+          <h3>Prompt Hydrologist</h3>
+          <p>Translates body broth into pitch-deck language without ever touching the sample.</p>
+        </article>
+        <article class="card">
+          <h3>Biohazard UX Lead</h3>
+          <p>Makes the warning label feel premium, clickable, and just terrifying enough to convert.</p>
+        </article>
+        <article class="card">
+          <h3>Chief Steeping Officer</h3>
+          <p>Maintains the roadmap from accidental marinade to enterprise-grade forbidden liquid.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="warnings">
+      <div class="warning">
+        <h2>Risk Disclosure</h2>
+        <p>This is a fake AI company and fake product landing page. The bottled liquid is not a beverage, supplement, skincare product, research reagent, starter culture, or wellness intervention. Real hot tub water may contain bacteria, viruses, parasites, bodily fluids, chemical irritants, and unknown contaminants. Do not drink it. Do not test your immune system. Do not let the model talk you into misting it.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">Runoff Intelligence · SQUIRT-14X · Closed beta · Open drain · No medical claims</footer>
+</body>
+</html>
