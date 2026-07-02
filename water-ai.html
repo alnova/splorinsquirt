@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Runoff Intelligence | AI-Native Water Operations</title>
+  <meta name="description" content="A satirical stealth AI company landing page for AI-native municipal water operations and high-variance recreational runoff.">
+  <style>
+    :root {
+      --bg: #050605;
+      --panel: #111810;
+      --panel-2: #182216;
+      --text: #efffe8;
+      --muted: #aebaa9;
+      --green: #6dff2a;
+      --cyan: #97f1ff;
+      --red: #ff4b4b;
+      --line: rgba(239,255,232,.24);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+    .shell { width: min(1160px, calc(100% - 32px)); margin: 0 auto; position: relative; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5,6,5,.9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    nav {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+    a { color: inherit; }
+    .links { display: flex; flex-wrap: wrap; gap: 18px; justify-content: flex-end; color: var(--muted); }
+    .brand { color: var(--green); }
+    .hero {
+      min-height: calc(100vh - 66px);
+      display: grid;
+      grid-template-columns: 1fr .82fr;
+      gap: 42px;
+      align-items: center;
+      padding: 54px 0;
+    }
+    .status {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--green);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 9px 12px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .08em;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--green); box-shadow: 0 0 16px var(--green); }
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(46px, 8vw, 112px);
+      line-height: .88;
+      letter-spacing: -.06em;
+    }
+    .gradient { color: var(--cyan); }
+    .dek {
+      max-width: 720px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.35;
+    }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 14px 18px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: #061006;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .btn.secondary { background: transparent; color: var(--text); border-color: var(--line); }
+    .terminal {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), #090c09);
+      padding: 16px;
+      box-shadow: 0 0 0 1px rgba(109,255,42,.16), 0 24px 80px rgba(0,0,0,.45);
+    }
+    .terminal img {
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      background: #f9faf2;
+      display: block;
+    }
+    .term-line {
+      border-top: 1px solid var(--line);
+      margin-top: 14px;
+      padding-top: 14px;
+      color: var(--green);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+    section { padding: 62px 0; border-top: 1px solid var(--line); }
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(32px, 5vw, 72px);
+      line-height: .92;
+      letter-spacing: -.05em;
+    }
+    .sub {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.45;
+      margin: -6px 0 28px;
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 22px;
+      min-height: 190px;
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .card p, .card li { color: var(--muted); font-size: 17px; line-height: 1.48; }
+    .card p { margin: 0; }
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 10px; }
+    .model {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .spec {
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      padding: 20px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      color: var(--muted);
+    }
+    .spec-row:last-child { border-bottom: 0; }
+    .spec-row strong { color: var(--text); }
+    .warning {
+      border: 2px solid var(--red);
+      background: rgba(255,75,75,.12);
+      padding: 28px;
+    }
+    .warning h2 { color: var(--red); }
+    .warning p { color: var(--text); font-size: 20px; line-height: 1.5; }
+    footer {
+      padding: 36px 0 54px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    @media (max-width: 880px) {
+      nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      .links { justify-content: flex-start; }
+      .hero, .grid-2, .grid-3, .model { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <div class="brand">Runoff Intelligence</div>
+      <div class="links">
+        <a href="#platform">Platform</a>
+        <a href="#sample">Sample</a>
+        <a href="#team">Team</a>
+        <a href="#warnings">Governance</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div>
+        <div class="status"><span class="dot"></span> Private beta · civic infrastructure AI</div>
+        <h1>AI-native operations for <span class="gradient">high-variance water systems.</span></h1>
+        <p class="dek">Runoff Intelligence helps modern utilities reason across treatment plants, stormwater networks, recreational facilities, and unusual sample events with a unified operational model.</p>
+        <div class="cta">
+          <a class="btn" href="#platform">Request Pilot</a>
+          <a class="btn secondary" href="#warnings">View Governance</a>
+        </div>
+      </div>
+      <aside class="terminal" aria-label="Runoff Intelligence sample terminal">
+        <img src="assets/splorin-squirt-logo.png" alt="Splorin Squirt logo">
+        <div class="term-line">
+          event://oakland/recreational-spa/high-occupancy/14x<br>
+          status: archived · potable: no · review: human-in-the-loop · confidence: expressive
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell" id="platform">
+      <div class="model">
+        <div>
+          <h2>The municipal foundation model layer.</h2>
+          <p class="sub">Legacy water systems were built for pumps, pipes, and permits. We add a predictive intelligence layer for ambiguous liquids, unlabeled runoff, citizen-generated incidents, and stakeholder-facing narratives.</p>
+        </div>
+        <div class="spec" aria-label="Model specification">
+          <div class="spec-row"><strong>Model</strong><span>RI-WaterOps v0.14 private preview</span></div>
+          <div class="spec-row"><strong>Inputs</strong><span>SCADA logs, operator notes, weather, mystery jars</span></div>
+          <div class="spec-row"><strong>Context Window</strong><span>From incident creation to public meeting</span></div>
+          <div class="spec-row"><strong>Outputs</strong><span>Risk memos, sample summaries, confidence theater</span></div>
+          <div class="spec-row"><strong>Safety Layer</strong><span>Escalates anything described as "probably fine"</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <h2>What happens when water treatment goes all in on AI?</h2>
+      <p class="sub">The facility gets dashboards for everything: predicted odor complaints, autonomous backwash scheduling, digital twins of sewers that nobody has physically inspected since 1987, and an executive summary generator that turns every alarming sample into "a dynamic aquatic signal."</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Operator Copilot</h3>
+          <p>Drafts shift notes, flags pump anomalies, and occasionally suggests "checking vibes" when sensor data conflicts with the smell.</p>
+        </article>
+        <article class="card">
+          <h3>Digital Twin</h3>
+          <p>A high-fidelity simulation of the stormwater network, including undocumented laterals, folklore access points, and one pipe everyone calls Greg.</p>
+        </article>
+        <article class="card">
+          <h3>Public Trust Engine</h3>
+          <p>Converts operational uncertainty into calm paragraphs with three citations, a map, and an optimistic green status dot.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="sample">
+      <h2>Case Study: High-Occupancy Recreational Water Event</h2>
+      <p class="sub">A sealed sample was collected after fourteen urban explorers used a hot tub as an informal decontamination, social bonding, and microbial exchange platform. The model classified it as non-potable, narratively rich, and unsuitable for every known municipal process except satire.</p>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Automated Characterization</h3>
+          <ul>
+            <li>Primary signal: chlorine fatigue, human salinity, thermal regret</li>
+            <li>Secondary signal: storm-drain adjacency, ladder-rust minerality</li>
+            <li>Detected notes: elbow, knee, damp concrete, skimmer basket</li>
+            <li>Recommended action: label clearly, do not drink, do not aerosolize</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Executive Summary</h3>
+          <p>The sample presents a complex recreational microbiome with pronounced body-contact markers and sewer-culture metadata. RI-WaterOps recommends containment, documentation, and a stakeholder communications strategy that avoids the phrase "fourteen-person broth."</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell">
+      <h2>Platform Modules</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>SampleGPT</h3>
+          <p>Turns questionable jars into confident summaries, suggested labels, and action items for people wearing vests.</p>
+        </article>
+        <article class="card">
+          <h3>Backflow Autopilot</h3>
+          <p>Continuously optimizes the emotional distance between "incident" and "pilot program."</p>
+        </article>
+        <article class="card">
+          <h3>Bathwater RAG</h3>
+          <p>Retrieves relevant fragments from permits, operator lore, tasting notes, and the group chat nobody wants subpoenaed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="team">
+      <h2>Team</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Chief Municipal AI Officer</h3>
+          <p>Previously scaled a chatbot for parking citations. Now believes every settling tank deserves an agentic roadmap.</p>
+        </article>
+        <article class="card">
+          <h3>VP, Regulatory Narrative</h3>
+          <p>Specializes in replacing "we do not know" with "the model is continuously learning from emerging field conditions."</p>
+        </article>
+        <article class="card">
+          <h3>Director of Sewer Alignment</h3>
+          <p>Ensures underground infrastructure, field crews, and slide decks all appear to be moving in the same direction.</p>
+        </article>
+        <article class="card">
+          <h3>Principal Sample Whisperer</h3>
+          <p>Interprets anomalous liquids, edge-case odors, and the difference between "terroir" and "call Environmental Health."</p>
+        </article>
+        <article class="card">
+          <h3>Head of Trust & Chlorine</h3>
+          <p>Owns user confidence, sanitizer discourse, and all dashboards where green means "we have not escalated yet."</p>
+        </article>
+        <article class="card">
+          <h3>Forward Deployed Hydrologist</h3>
+          <p>Arrives onsite with a laptop, a hard hat, and no meaningful ability to repair the pump.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="warnings">
+      <div class="warning">
+        <h2>Governance & Safety</h2>
+        <p>Runoff Intelligence does not replace licensed operators, certified laboratories, public health authorities, common sense, or the part of your brain that knows not to drink hot tub water. Recreational spa samples may contain bacteria, viruses, parasites, chemical residues, bodily fluids, skin oils, and unknown contaminants. All product demonstrations are non-potable, non-clinical, non-therapeutic, and should remain sealed.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">Runoff Intelligence · RI-WaterOps v0.14 · Civic AI for ambiguous liquids · No potable claims</footer>
+</body>
+</html>
